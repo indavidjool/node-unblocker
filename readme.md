@@ -27,25 +27,16 @@ remain intact when switching protocols or subdomains.
 Although the proxy works well for standard login forms and even most AJAX content, OAuth login forms and anything that uses
 [postMessage](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) (Google, Facebook, etc.) are not
 likely to work out of the box. This is not an insurmountable issue, but it's not one that I expect to have fixed in the
-near term. Patches are welcome, including both a general-purpose fix to go into the main library, and site-specific
+near term.
+
+Additionally, websockets are not currently supported. However, some websocket libraries, such as socket.io and engine.io will start with or fall back to long-poling automatically, which _is_ supported.
+
+Patches are welcome, including both general-purpose improvements to go into the main library, and site-specific
 fixes to go in the examples folder.
 
 ## Running the website on your computer
 
-Requires [node.js](http://nodejs.org/) >= 6
-Then [download node-unblocker](https://github.com/nfriedly/node-unblocker/archive/master.zip),
-`cd` into the `examples/nodeunblocker.com/` directory,
-and run `npm install` to set things up.
-Then run `npm start` to start the server. It should spawn a new instance for each CPU
-core you have.
-
-(Note: running `node app.js` *will not work*. The server code is in the [Gatling](https://npmjs.org/package/gatling)
-package, which the `npm start` command calls automatically.)
-
-## Running the website on heroku/bluemix/modulous/etc
-
-This project should be runnable on a free [Heroku](http://www.heroku.com/) instance without
-modification - just copy the `examples/nodeunblocker.com/` folder to a new git repo and push it.
+See https://github.com/nfriedly/nodeunblocker.com
 
 ## Using unblocker as a library in your software
 
@@ -296,7 +287,8 @@ If you're using Nginx as a reverse proxy, you probably need to disable `merge_sl
 
 ## AGPL-3.0 License
 This project is released under the terms of the [GNU Affero General Public License version 3](https://www.gnu.org/licenses/agpl-3.0.html).
-All source code is copyright Nathan Friedly.
+
+All source code is copyright [Nathan Friedly](http://nfriedly.com/).
 
 Commercial licensing and support are also available, contact Nathan Friedly (nathan@nfriedly.com) for details.
 
